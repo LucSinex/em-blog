@@ -1,0 +1,12 @@
+<h2>Edit Post</h2>
+<p>Title: {{input value=model.title}}</p>
+
+<p>Content: {{input value=model.body}}</p>
+
+<button {{action 'save' model}}>Update Post</button>
+
+<p>
+	{{#link-to 'posts'}}Back{{/link-to}}
+</p>
+
+{{outlet}}

@@ -1,0 +1,16 @@
+<p>
+	{{#each model as |post|}}
+		<p>Title: {{post.title}} 
+			{{#link-to 'posts.show' post}}View{{/link-to}} 
+			{{#link-to 'posts.edit' post}}Edit{{/link-to}}
+			<span {{action 'destroy' post}}>
+				{{#link-to 'posts'}}Destroy{{/link-to}}
+			</span>
+		</p>
+		<p>Content: {{post.body}}</p>
+	{{/each}}
+</p>
+
+{{#link-to 'posts.new'}}Add a post{{/link-to}}
+
+{{outlet}}

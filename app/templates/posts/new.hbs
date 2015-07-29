@@ -1,0 +1,19 @@
+<h2>New post:</h2>
+
+<div class="form-control">
+	<p>Title:</p>
+	{{input value=model.title}}
+
+	<p>Content:</p>
+	{{input value=model.body enter='create'}}
+
+	<p>
+		<button {{action 'create'}}>Submit</button>
+	</p>
+</div>
+
+<p>
+	{{#link-to 'posts'}}Back{{/link-to}}
+</p>
+
+{{outlet}}
