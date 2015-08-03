@@ -10,6 +10,10 @@ export default Ember.Route.extend({
 			this.controller.get('model').save().then(
 				function() { self.transitionTo('posts.index'); }
 			);
+		},
+		willTransition: function() {
+			var model = this.controllerFor('posts.new').get('model');
+			model.rollback();
 		}
 	}
 });
