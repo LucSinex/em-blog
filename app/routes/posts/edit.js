@@ -9,7 +9,7 @@ export default Ember.Route.extend({
 			var self = this;
 			post.setProperties({ title: self.controller.get('model.title'), 
 				body: self.controller.get('model.body')});
-			post.save();
+			if (session.isAuthenticated) { post.save(); }
 			self.controller.transitionToRoute('posts');
 		}
 	}
