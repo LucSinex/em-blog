@@ -19,6 +19,15 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:devise'
+  }
+
+  ENV['simple-auth-devise'] = {
+    tokenAttributeName: 'token',
+    identificationAttributeName: 'email'
+  }
+
   ENV.contentSecurityPolicy = {
 	  'default-src': "'none'",
 	  'script-src': "'self'",
