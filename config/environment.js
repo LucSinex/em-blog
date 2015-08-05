@@ -20,7 +20,8 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth'] = {
-    authorizer: 'simple-auth-authorizer:devise'
+    authorizer: 'simple-auth-authorizer:devise',
+    crossOriginWhitelist: ['http://infinite-scrubland-4192.herokuapp.com']
   }
 
   ENV['simple-auth-devise'] = {
@@ -32,7 +33,7 @@ module.exports = function(environment) {
 	  'default-src': "'none'",
 	  'script-src': "'self'",
 	  'font-src': "'self' fonts.gstatic.com",
-	  'connect-src': "'self'",
+	  'connect-src': "'self' infinite-scrubland-4192.herokuapp.com",
 	  'img-src': "'self' data:",
 	  'media-src': "'self'"
 	};
