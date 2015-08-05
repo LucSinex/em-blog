@@ -1,21 +1,32 @@
-<h2 id="title">Welcome to Ember.js - With Authentication!</h2>
+{{#paper-nav-container open=drawerOpen classNames="ember-app"}}
 
-{{#if session.isAuthenticated}}
-  Hi, {{session.email}}
-  <br/>
-  You can't see this text unless you're logged in!
-  <br/>
-  Click this button to logout: 
-  <button {{action 'invalidateSession'}}>Logout</button>
-  <br/>
-  If you try to go to the
-  {{#link-to "login"}}Login{{/link-to}}
-  page, you should get redirected!
-{{else}}
-  {{#link-to "login"}}Login{{/link-to}}
-{{/if}}
+  {{#paper-sidenav classNames="md-sidenav-left md-whiteframe-z2" flex-layout="column" flex=true}}
 
-<br/>
-{{#link-to 'posts'}}View Posts{{/link-to}}
+    {{#paper-toolbar}}
+      <div class="md-toolbar-tools">
+        <div class="logo">
+          <strong>Luc Sinex</strong>
+        </div>
+      </div>
+    {{/paper-toolbar}}
 
-{{outlet}}
+    {{#paper-content}}
+
+      {{#paper-list}}
+        {{#paper-item action="transitionTo" param="index" title="Posts"}}Posts{{/paper-item}}
+        {{#paper-item action="transitionTo" param="about" title="About"}}About{{/paper-item}}
+      {{/paper-list}}
+
+    {{/paper-content}}
+  {{/paper-sidenav}}
+
+  {{#paper-content flex-layout="column" flex=true}}
+    {{#paper-toolbar}}
+      <div class="md-toolbar-tools">
+        <h2>{{currentRoute}}</h2>
+      </div>
+    {{/paper-toolbar}}
+    {{outlet}}
+  {{/paper-content}}
+
+{{/paper-nav-container}}
