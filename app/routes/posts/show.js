@@ -19,7 +19,7 @@ export default Ember.Route.extend({
 					post.save().then(
 						function() {
 							self.controller.set('newComment', self.store.createRecord('comment'));
-						})
+						});
 				});
 		},
 		willTransition: function() {

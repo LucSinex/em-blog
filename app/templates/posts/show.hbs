@@ -12,8 +12,8 @@
 
 <h3>Add a comment</h3>
 
-<p>Your name: {{input value=newComment.author}}</p>
-<p>{{textarea cols=50 rows=20 value=newComment.body}}</p>
+<p>{{paper-input label="Name" value=newComment.author}}</p>
+<p>{{paper-input label="Your Comment" value=newComment.body textarea=true cols=20 rows=20}}</p>
 <button {{action 'comment'}}>Add comment</button>
 
 <p>

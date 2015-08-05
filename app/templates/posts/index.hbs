@@ -1,16 +1,18 @@
-<p>
-	{{#each model as |post|}}
-		<p>Title: {{post.title}} 
-			{{#link-to 'posts.show' post}}View{{/link-to}} 
-			{{#link-to 'posts.edit' post}}Edit{{/link-to}}
-			<span {{action 'destroy' post}}>
-				{{#link-to 'posts'}}Destroy{{/link-to}}
-			</span>
-		</p>
-		<p>Content: {{post.body}}</p>
-	{{/each}}
-</p>
+{{#paper-content classNames="md-whiteframe-z1"}}
+	{{#paper-list}}
+		{{#each model as |post|}}
+			{{#paper-item class="md-3-line"}}
+				<div class="md-list-item-text">
+					<h3>{{#link-to 'posts.show' post}}{{post.title}}{{/link-to}}</h3>
+					<h4>
+						{{post.body}}
+					</h4>
+				</div>
+			{{/paper-item}}
+		{{/each}}
+	{{/paper-list}}
+{{/paper-content}}
 
-{{#link-to 'posts.new'}}Add a post{{/link-to}}
+
 
 {{outlet}}

@@ -1,0 +1,30 @@
+{{#if session.isAuthenticated}}
+  <button {{action 'invalidateSession'}}>Logout</button>
+  <br/>
+{{else}}
+  {{#link-to "login"}}Login{{/link-to}}
+{{/if}}
+
+<br/>
+{{#link-to 'posts'}}View Posts{{/link-to}}
+
+<p>
+	{{#each model as |post|}}
+		<p>Title: {{post.title}} 
+			{{#link-to 'posts.show' post}}View{{/link-to}} 
+			{{#link-to 'posts.edit' post}}Edit{{/link-to}}
+			<span {{action 'destroy' post}}>
+				{{#link-to 'posts'}}Destroy{{/link-to}}
+			</span>
+		</p>
+		<p>Content: {{post.body}}</p>
+	{{/each}}
+</p>
+
+{{#link-to 'posts.new'}}Add a post{{/link-to}}
+
+<br/>
+
+{{#link-to 'index'}}Back to Main Page{{/link-to}}
+
+{{outlet}}

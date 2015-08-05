@@ -1,7 +1,13 @@
 <h2>Edit Post</h2>
 <p>Title: {{input value=model.title}}</p>
+{{#each model.errors.title as |error|}}
+	{{error.message}}
+{{/each}}
 
 <p>Content: {{input value=model.body}}</p>
+{{#each model.errors.body as |error|}}
+	{{error.message}}
+{{/each}}
 
 <button {{action 'save' model}}>Update Post</button>
 
